@@ -1,0 +1,7 @@
+*.aps
+*.bak
+*.VC.db
+*.VC.opendb
+*.vs
+x86/
+x64/

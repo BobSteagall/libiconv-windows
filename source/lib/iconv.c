@@ -175,7 +175,7 @@ static const struct stringpool2_t stringpool2_contents = {
 };
 #define stringpool2 ((const char *) &stringpool2_contents)
 static const struct alias sysdep_aliases[] = {
-#define S(tag,name,encoding_index) { (int)(long)&((struct stringpool2_t *)0)->stringpool_##tag, encoding_index },
+#define S(tag,name,encoding_index) { (int)(intptr_t)&((struct stringpool2_t *)0)->stringpool_##tag, encoding_index },
 #include "aliases2.h"
 #undef S
 };
@@ -247,7 +247,7 @@ invalid:
 }
 
 size_t iconv (iconv_t icd,
-              ICONV_CONST char* * inbuf, size_t *inbytesleft,
+              const char* * inbuf, size_t *inbytesleft,
               char* * outbuf, size_t *outbytesleft)
 {
   conv_t cd = (conv_t) icd;
